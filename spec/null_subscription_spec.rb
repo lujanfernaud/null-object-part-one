@@ -2,8 +2,14 @@ require 'spec_helper'
 
 describe NullSubscription do
   describe '#charge' do
-    it 'returns false' do
-      expect(described_class.new.charge("")).to eq(false)
+    it 'does not charge credit card' do
+      credit_card = double('credit_card')
+      allow(credit_card).to receive(:charge)
+      user = User.new(credit_card: credit_card)
+
+      user.charge
+
+      expect(credit_card).not_to have_received(:charge)
     end
   end
 
