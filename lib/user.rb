@@ -1,5 +1,6 @@
 class User
   include ActiveModel::Model
+
   attr_accessor :credit_card
   attr_writer   :subscription
 
