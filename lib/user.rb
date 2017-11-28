@@ -2,17 +2,20 @@ class User
   include ActiveModel::Model
   attr_accessor :credit_card, :subscription
 
+  def initialize(arguments = {})
+    super
+    @subscription = arguments[:subscription] || NullSubscription.new
+  end
+
   def charge
-    unless subscription.nil?
-      subscription.charge(credit_card)
-    end
+    subscription.charge(credit_card)
   end
 
   def has_mentoring?
-    subscription && subscription.has_mentoring?
+    subscription.has_mentoring?
   end
 
   def price
-    subscription.try(:price) || 0
+    subscription.price
   end
 end
