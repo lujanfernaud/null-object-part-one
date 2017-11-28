@@ -10,6 +10,6 @@ class User
   end
 
   def subscription
-    @subscription ||= NullSubscription.new
+    @subscription ||= NoSubscription.new
   end
 end

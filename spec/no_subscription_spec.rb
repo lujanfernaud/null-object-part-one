@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe NullSubscription do
+describe NoSubscription do
   describe '#charge' do
     it 'does not charge credit card' do
       credit_card = double('credit_card')

@@ -1,4 +1,4 @@
-class NullSubscription
+class NoSubscription
   def has_mentoring?
     false
   end
